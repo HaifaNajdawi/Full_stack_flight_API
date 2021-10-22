@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Flights</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+		integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+		integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+		integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+		crossorigin="anonymous"></script>
+
+	<!-- <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> -->
+	<script src="https://kit.fontawesome.com/cb5c1354b2.js" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="./flight.css">
+</head>
+
+<body>
+
+	<!-- <div class="wrapper"> -->
+	<nav class="navbar navbar-default navar-color">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="flight.html">LandedOrDelayed.com
+				</a>
+			</div>
+		</div>
+	</nav>
+	<div class="text-center hero">
+		<p>One click to check your buddy has LandedOrDelayed</p>
+		<div class="container">
+			<div class="search-form row">
+
+				<div class="input-group md-form form-sm form-2 pl-0">
+					<input class="form-control my-0 py-1" type="text" placeholder="Enter flight number"
+						aria-label="Search" id="searchBar">
+					<div class="input-group-append">
+						<button class="input-group-text amber lighten-3" id="basic-text1"><i
+								class="fas fa-search text-grey" aria-hidden="true"></i></button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+	</div>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div>
+				<button type="button" class="btn btn-primary butt" data-toggle="modal" data-target="#addFlightModel">New
+					Flight</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-11">
+				<table class="table table-striped table-color" id="myTable">
+					<thead>
+						<tr>
+							<th>Flight Number</th>
+							<th>Airport</th>
+							<th>Airline Name</th>
+							<th>Tail Number</th>
+							<th>Distance</th>
+							<th>Departure City</th>
+							<th>Arrival City</th>
+							<th>Date</th>
+							<th>Departure Time</th>
+							<th>Arrival Time</th>
+						</tr>
+					</thead>
+					<tbody id="flight-table-body">
+
+					</tbody>
+				</table>
+
+			</div>
+			<!-- <div class="col-lg-2">
+				<div class="form">
+					<form action="#" id="new-flight-form">
+
+						<div class="form-group">
+							<label class="control-label form-color">Flight Number</label>
+							<input type="text" class="form-control" id="fnumber" placeholder="Flight Number">
+						</div>
+						<div class="form-group">
+							<label class="control-label form-color">Airport</label>
+							<input type="text" class="form-control" id="airport" placeholder="Airport">
+						</div>
+						<div class="form-group">
+							<label class="control-label form-color">Airline Name</label>
+							<input type="text" class="form-control" id="airlineName" placeholder="Airline Name">
+						</div>
+						<div class="form-group">
+							<label class="control-label form-color">Tail Number</label>
+							<input type="text" class="form-control" id="tailNumber" placeholder="Tail Number">
+						</div>
+						<div class="form-group">
+							<label class="control-label form-color">Distance</label>
+							<input type="number" class="form-control" id="distance" placeholder="Distance">
+						</div>
+						<div class="form-group">
+							<label class="control-label form-color">Departure City</label>
+							<input type="text" class="form-control" id="departureCity" placeholder="Departure City">
+						</div>
+						<div class="form-group">
+							<label class="control-label form-color">Arrival City</label>
+							<input type="text" class="form-control" id="arrivalCity" placeholder="Arrival City">
+						</div>
+						<div class="form-group">
+							<label class="control-label form-color">Date</label>
+							<input type="date" class="form-control" id="date" placeholder="Date">
+						</div>
+						<div class="form-group">
+							<label class="control-label form-color">Departure Time</label>
+							<input type="time" class="form-control" id="departureTime" placeholder="Departure Time">
+						</div>
+						<div class="form-group">
+							<label class="control-label form-color">Arrival Time</label>
+							<input type="time" class="form-control" id="arrivalTime" placeholder="Arrival Time">
+						</div>
+
+
+
+						<button type="button" class="btn btn-primary butt-color" id="insert">New Flight</button>
+
+
+						<button type="button" class="btn btn-primary butt-color" id="update">Update</button>
+
+						<button type="button" class="btn btn-primary butt-color" id="delete">Delete</button>
+
+
+					</form>
+				</div>
+			</div> -->
+
+		</div>
+	</div>
+	</div>
+
+	<div class="modal fade bd-example-modal-xl" id="addFlightModel" role="dialog">
+		<div class="modal-dialog modal-xl">
+			<!-- Modal content -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Add New Flight</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div id="new-flight-form" class="form-inline">
+
+						<div class="form-group">
+							<label class="control-label">Flight Number</label>
+							<input type="text" class="form-control" id="fnumber" placeholder="Flight Number">
+						</div>
+						<div class="form-group">
+							<label class="control-label">Airport</label>
+							<input type="text" class="form-control" id="airport" placeholder="Airport">
+						</div>
+						<div class="form-group">
+							<label class="control-label r">Airline Name</label>
+							<input type="text" class="form-control" id="airlineName" placeholder="Airline Name">
+						</div>
+						<div class="form-group">
+							<label class="control-label">Tail Number</label>
+							<input type="text" class="form-control" id="tailNumber" placeholder="Tail Number">
+						</div>
+						<div class="form-group">
+							<label class="control-label">Distance</label>
+							<input type="number" class="form-control" id="distance" placeholder="Distance">
+						</div>
+						<div class="form-group">
+							<label class="control-label">Departure City</label>
+							<input type="text" class="form-control" id="departureCity" placeholder="Departure City">
+						</div>
+						<div class="form-group">
+							<label class="control-label">Arrival City</label>
+							<input type="text" class="form-control" id="arrivalCity" placeholder="Arrival City">
+						</div>
+						<div class="form-group">
+							<label class="control-label">Date</label>
+							<input type="date" class="form-control" id="date" placeholder="Date">
+						</div>
+						<div class="form-group">
+							<label class="control-label">Departure Time</label>
+							<input type="time" class="form-control" id="departureTime" placeholder="Departure Time">
+						</div>
+						<div class="form-group">
+							<label class="control-label">Arrival Time</label>
+							<input type="time" class="form-control" id="arrivalTime" placeholder="Arrival Time">
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="ok btn btn-default" data-dismiss="modal" id="insert">Add</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade bd-example-modal-xl" id="updateFlightModel" role="dialog">
+		<div class="modal-dialog modal-xl">
+			<!-- Modal content -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Update Flight</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div id="update-flight-form" class="form-inline">
+
+						<div class="form-group">
+							<label class="control-label">Flight Number</label>
+							<input type="text" class="form-control disabled" id="fnumberUpdate"
+								placeholder="Flight Number" readonly>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Airport</label>
+							<input type="text" class="form-control" id="airportUpdate" placeholder="Airport">
+						</div>
+						<div class="form-group">
+							<label class="control-label r">Airline Name</label>
+							<input type="text" class="form-control" id="airlineNameUpdate" placeholder="Airline Name">
+						</div>
+						<div class="form-group">
+							<label class="control-label">Tail Number</label>
+							<input type="text" class="form-control" id="tailNumberUpdate" placeholder="Tail Number">
+						</div>
+						<div class="form-group">
+							<label class="control-label">Distance</label>
+							<input type="number" class="form-control" id="distanceUpdate" placeholder="Distance">
+						</div>
+						<div class="form-group">
+							<label class="control-label">Departure City</label>
+							<input type="text" class="form-control" id="departureCityUpdate"
+								placeholder="Departure City">
+						</div>
+						<div class="form-group">
+							<label class="control-label">Arrival City</label>
+							<input type="text" class="form-control" id="arrivalCityUpdate" placeholder="Arrival City">
+						</div>
+						<div class="form-group">
+							<label class="control-label">Date</label>
+							<input type="date" class="form-control" id="dateUpdate" placeholder="Date">
+						</div>
+						<div class="form-group">
+							<label class="control-label">Departure Time</label>
+							<input type="time" class="form-control" id="departureTimeUpdate"
+								placeholder="Departure Time">
+						</div>
+						<div class="form-group">
+							<label class="control-label">Arrival Time</label>
+							<input type="time" class="form-control" id="arrivalTimeUpdate" placeholder="Arrival Time">
+						</div>
+					</div>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="ok btn btn-default" data-dismiss="modal" id="update">Update</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="deleteConfirmModel" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content -->
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Delete flight</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p> Are you sure you want to delete flight number <span id="flightToDeleteId"></span>? </p>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="ok btn btn-default" data-dismiss="modal" id="delete">Delete</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<script src="./js-flight.js"></script>
+</body>
+
+
+</html>
